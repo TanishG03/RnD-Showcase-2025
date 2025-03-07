@@ -3,19 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RnD Showcase</title>
+    <title>HEIDI Matrix Visualization Guide</title>
     <style>
         body {
-            font-family: Helvetica, Arial, sans-serif;
+            font-family: 'Helvetica', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
             text-align: center;
-            padding: 50px;
         }
         h1 {
             font-size: 2.5em;
+            margin-top: 20px;
+            color: #2c3e50;
+        }
+        .container {
+            max-width: 1400px; /* Increased width */
+            margin: 0 auto;
+            padding: 20px 10px; /* Reduced side padding */
+        }
+        .button-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .button {
+            flex: 1;
+            margin: 0 10px;
+            padding: 15px 20px;
+            font-size: 1.1em;
+            color: #fff;
+            background-color: #3498db;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #2980b9;
+        }
+        .instructions {
+            text-align: left;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+        .instructions h2 {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .instructions ol {
+            font-size: 1.1em;
+            line-height: 1.6;
+            padding-left: 20px;
+        }
+        .image-container {
+            margin: 20px 0;
+            display: none; /* Initially hidden */
+        }
+        .image-container img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .footer {
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #777;
         }
     </style>
 </head>
 <body>
-    <h1>RnD Showcase</h1>
+    <div class="container">
+        <h1>HEIDI Matrix Visualization Guide</h1>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdquOgHN1O6K_qH3mopKG8ZLWDTF5ylwghCmU5CZ_tdQvo0_g/viewform?usp=dialog" class="button" style="width: 100%; margin-bottom: 20px;">Fill the Form</a>
+
+        <div class="instructions">
+            <h2>How to Read the HEIDI Matrix Visualization</h2>
+            <ol>
+                <li><strong>Understand the Structure</strong>: The HEIDI matrix is a grid where each cell represents the relationship between two data points. The matrix is divided into blocks based on cluster labels.</li>
+                <li><strong>Cluster Blocks</strong>: Each block corresponds to interactions between points from specific clusters. For example, the top-left block shows interactions within Cluster 0.</li>
+                <li><strong>Colors and Expressions</strong>: Each color represents a unique boolean expression (e.g., F0 + F1). The legend maps colors to expressions.</li>
+                <li><strong>Spiral Placement</strong>: Expressions are arranged in a spiral pattern, with the most frequent and significant patterns at the center.</li>
+                <li><strong>Scatter Plot (Optional)</strong>: If included, the scatter plot shows the dataset in 2D space, with points colored by cluster assignments.</li>
+            </ol>
+        </div>
+
+        <div class="button-row">
+            <button class="button" onclick="showImage('image1')">View Image 1</button>
+            <button class="button" onclick="showImage('image2')">View Image 2</button>
+            <button class="button" onclick="showImage('image3')">View Image 3</button>
+            <button class="button" onclick="showImage('image4')">View Image 4</button>
+            <button class="button" onclick="showImage('image5')">View Image 5</button>
+        </div>
+
+        <div id="image1" class="image-container">
+            <img src="250.png" alt="HEIDI Matrix Example 1">
+        </div>
+        <div id="image2" class="image-container">
+            <img src="250(2).png" alt="HEIDI Matrix Example 2">
+        </div>
+        <div id="image3" class="image-container">
+            <img src="250(3).png" alt="HEIDI Matrix Example 3">
+        </div>
+        <div id="image4" class="image-container">
+            <img src="250_6dim.png" alt="HEIDI Matrix Example 4">
+        </div>
+        <div id="image5" class="image-container">
+            <img src="5000.png" alt="HEIDI Matrix Example 5">
+        </div>
+
+        <div class="footer">
+            <p>© 2023 RnD Showcase. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        function showImage(imageId) {
+            // Hide all images first
+            const images = document.querySelectorAll('.image-container');
+            images.forEach(image => {
+                image.style.display = 'none';
+            });
+
+            // Show the selected image
+            const selectedImage = document.getElementById(imageId);
+            if (selectedImage) {
+                selectedImage.style.display = 'block';
+            }
+        }
+    </script>
 </body>
 </html>
